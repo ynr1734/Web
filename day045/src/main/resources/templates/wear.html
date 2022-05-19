@@ -1,0 +1,10 @@
+<aside id="left_aside">
+	<ui>
+		<li><a href="wear1">wear1</a></li>
+		<li><a href="wear2">wear2</a></li>
+		<li><a href="wear3">wear3</a></li>
+	</ui>
+</aside>
+<aside id="right_aside"
+	th:include="${scenter} ? ${scenter} : @{wear/wearmain}">
+</aside>
