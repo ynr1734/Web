@@ -1,0 +1,69 @@
+<meta charset="UTF-8">
+<style>
+.b{
+	color:white;
+	background:gray;
+}
+</style>
+<script>
+$(document).ready(function(){
+	$('button').on({
+		'click':function(){
+			$(this).css({'color':'yellow','background':'black'}); 
+		},
+		'mouseenter':function(){
+			$('h1').text('mouse enter');
+			$(this).addClass('b');
+		},
+		'mouseleave':function(){
+			$('h1').text('mouse leave');
+			$(this).removeClass('b');
+		}
+	});
+	
+	/* 하나씩 따로
+	$('button').mouseenter(function(){
+		$('h1').text('mouse enter');
+	});
+	$('button').mouseleave(function(){
+		$('h1').text('mouse leave');
+	});
+	$('button').click(function(){
+		$(this).css({'color':'yellow','background':'black'}); 
+		// jq에서 여러가지를 집어넣으려면 객체 사용 ({'':''})
+	});
+	*/
+	$('h2').hover(function(){
+		$(this).addClass('b');
+	},function(){
+		$(this).removeClass('b');
+	}); // 마우스가 들어올 때, 나갈 때 해서 함수 2개 필요
+	
+	// $('input[name="id"], input[name="pwd"]') 두개 가져올 수 있음
+	$('input[name="id"]').focus(function(){
+		$(this).addClass('b');
+		$('form > span:eq(0)').text('ID를 입력하세요!');
+	});
+	$('input[name="id"]').blur(function(){
+		$(this).removeClass('b');
+		var txt = $(this).val();
+		if(txt == ''){
+			$(this).focus();
+		};
+		if(txt.length < 5){
+			$('form > span:eq(0)').text('ID는 5글자 이상이어야 합니다!');
+		};
+	});
+	
+});
+</script>
+
+<h1>jQ02 Main</h1>
+<h2>Header2</h2>
+<button>Button</button>
+<form>
+ID<input type="text" name="id"><span></span><br>
+PWD<input type="password" name="pwd"><span></span><br>
+<input type="submit" value="login">
+</form>
+
