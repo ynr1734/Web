@@ -1,0 +1,29 @@
+<meta charset="UTF-8">
+<script>
+function display(data){
+	
+};
+function getdata(){
+	$.ajax({
+		url:'https://apis.data.go.kr/1360000/MidFcstInfoService/getMidTa',
+		data:{'serviceKey:':'','pageNo':'','numOfRows':'','dataType':'',
+			'regId':loc,'tmFc':'202205250600'},
+		success:function(data){
+			display(data);
+		}
+	});
+}
+
+$(document).ready(function(){
+	$('#s').click(function(){
+		getdata('11B0000');
+	});
+	$('#i').click(function(){
+		getdata('11D0000');
+	});
+});
+</script>
+<h1>aj12 Main</h1>
+<button id="s">Seoul</button>
+<button id="i">Incheon</button>
+<div id="result"></div>

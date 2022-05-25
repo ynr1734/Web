@@ -32,34 +32,13 @@ function displaymarker(pos){
 };
 
 function getmarkers(loc){
-	var pos = null;
-	pos = [
-	    {
-	        content: '<div>카카오1</div>', 
-	        lat: 37.5504169236590,
-	        lng: 126.9103717801371,
-	        target: 'js01'
-	    },
-	    {
-	    	content: '<div>카카오2</div>', 
-	        lat: 37.56151692365905,
-	        lng: 126.9213717801371,
-	        target: 'js02'
-	    },
-	    {
-	    	content: '<div>카카오3</div>', 
-	        lat: 37.5726169236590,
-	        lng: 126.9323717801371,
-	        target: 'js03'
-	    },
-	    {
-	    	content: '<div>카카오4</div>', 
-	        lat:37.5834169236590,
-	        lng: 126.9433717801371,
-	        target: 'js04'
-	    }
-	];
-	displaymarker(pos);
+	$.ajax({
+		url:'getmarkers',
+		data:{'loc':loc},
+		success:function(data){
+			displaymarker(data);
+		}
+	});
 };
 
 function gomap(loc){

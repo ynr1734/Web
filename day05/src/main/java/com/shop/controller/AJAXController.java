@@ -67,4 +67,73 @@ public class AJAXController {
 		}
 		return ja;
 	}
+	@RequestMapping("/getmarkers")
+	public Object getmarkers(String loc) {
+		JSONArray ja = new JSONArray();
+		if(loc.equals("s")) {
+			JSONObject jo1 = new JSONObject();
+			jo1.put("content", "<div>카카오1</div>");
+			jo1.put("lat", "37.5503169236590");
+			jo1.put("lng", "126.9102717801371");
+			jo1.put("target", "js01");
+			ja.add(jo1);
+			
+			JSONObject jo2 = new JSONObject();
+			jo2.put("content", "<div>카카오2</div>");
+			jo2.put("lat", "37.56151692365905");
+			jo2.put("lng", "126.9213717801371");
+			jo2.put("target", "js02");
+			ja.add(jo2);
+			
+			JSONObject jo3 = new JSONObject();
+			jo3.put("content", "<div>카카오3</div>");
+			jo3.put("lat", "37.5726169236590");
+			jo3.put("lng", "126.9323717801371");
+			jo3.put("target", "js03");
+			ja.add(jo3);
+		}else if(loc.equals("b")) {
+			JSONObject jo1 = new JSONObject();
+			jo1.put("content", "<div>카카오1</div>");
+			jo1.put("lat", "35.17542453774257");
+			jo1.put("lng", "129.16569784099807");
+			jo1.put("target", "js01");
+			ja.add(jo1);
+			
+			JSONObject jo2 = new JSONObject();
+			jo2.put("content", "<div>카카오2</div>");
+			jo2.put("lat", "35.18642453774257");
+			jo2.put("lng", "129.17669784099807");
+			jo2.put("target", "js02");
+			ja.add(jo2);
+			
+			JSONObject jo3 = new JSONObject();
+			jo3.put("content", "<div>카카오3</div>");
+			jo3.put("lat", "35.19642453774257");
+			jo3.put("lng", "129.18669784099807");
+			jo3.put("target", "js03");
+			ja.add(jo3);
+		}else if(loc.equals("g")) {
+			JSONObject jo1 = new JSONObject();
+			jo1.put("content", "<div>카카오1</div>");
+			jo1.put("lat", "35.16273425533525");
+			jo1.put("lng", "126.88658871719189");
+			jo1.put("target", "js01");
+			ja.add(jo1);
+			
+			JSONObject jo2 = new JSONObject();
+			jo2.put("content", "<div>카카오2</div>");
+			jo2.put("lat", "35.16173425533525");
+			jo2.put("lng", "126.89758871719189");
+			jo2.put("target", "js02");
+			ja.add(jo2);
+			
+			JSONObject jo3 = new JSONObject();
+			jo3.put("content", "<div>카카오3</div>");
+			jo3.put("lat", "35.16173425533525");
+			jo3.put("lng", "126.80758871719189");
+			jo3.put("target", "js03");
+			ja.add(jo3);
+		}
+		return ja;
+	}
 }
