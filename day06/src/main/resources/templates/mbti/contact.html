@@ -1,3 +1,120 @@
 <meta charset="UTF-8">
+<h1>Contact</h1>
+<meta charset="UTF-8">
+<style>
+	#registerBox{
+		width:500px;
+		height:500px;
+		border:2px solid blue;
+		float:left;
+		
+	}
+	
+</style>
+<script>
+// 회원가입 폼을 만든다 ok
+// checkbox 제외 ok
+// ajax id 체크 ok
+// 각 필드 validation ok
+// 서버로 form 데이터 전송 ok
+// 완료화면 출력 ok
 
-<h1>Contact Main</h1>
+function donotnextpage() {
+	if ($('#id').val() == ''){
+		$('#iid').text('ID를 입력하세요!');
+	}
+	// focus
+};
+
+
+function checkid(id) {
+	$.ajax({
+		url:'checkid',
+		data:{'id':id},
+		success:function(data){
+			if(data == '1'){
+				$('#iid').text('사용 가능한 ID 입니다!');
+			}else{
+				$('#iid').text('사용 불가능한 ID 입니다!');
+			}
+		}
+	});
+};
+
+
+$(document).ready(function(){
+	
+	$('button').attr('disabled');
+	
+	$('button').click(function(){
+		
+		$('#register_form').attr({
+			'action':'register_formimplws',
+			'method':'post'
+		});
+		$('#register_form').submit();
+	});
+	
+	$('input[name="pwd2"]').keyup(function(){
+		// 비밀번호가 서로 일치하는지 확인
+		var pwd = $('input[name="pwd"]').val();
+		var pwd2 = $('input[name="pwd2"]').val();
+		if(pwd == pwd2){
+			$('#spwd2').text('비밀번호가 일치합니다!');
+		}else if(pwd !== pwd2){
+			$('#spwd2').text('비밀번호가 일치하지 않습니다!');
+		}
+	});
+	
+	$('input[name="id"]').keyup(function(){
+		var id = $(this).val();
+		// 길이가 3자리 미만이면 span에 "3자리 이상이어야 합니다." 출력
+		if(id.length < 3){
+			$('#iid').text('3자리 이상이어야 합니다!');
+		}else{
+			$('#iid').text('');
+			checkid(id);
+		}
+	});
+});
+
+</script>
+<div class="container col-sm-6" id="registerBox">
+	<form id="register_form">
+	<div class="form-group">
+	  <label for="id">ID:</label>
+	  <input type="text" name="id" class="form-control" id="id" placeholder="Input ID">
+	<span id="iid"></span>
+	</div>
+	<div class="form-group">
+	  <label for="pwd">Password:</label>
+	  <input type="password" name="pwd" class="form-control" id="pwd" placeholder="Input Password">
+	</div>
+	<div class="form-group">
+	  <label for="pwd2">Password2:</label>
+	  <input type="password" name="pwd2" class="form-control" id="pwd2" placeholder="Input Password one more">
+	<span id="spwd2"></span>
+	</div>
+	<div class="form-group">
+	  <label for="gen">Gender:</label><br>
+	  <label><input type="radio" name="gen" value="female" checked>Female</label>
+	</div>
+	<div class="form-group">
+	  <label><input type="radio" name="gen" value="male">Male</label>
+	</div>
+	<div class="form-group">
+	  <label for="email">Email:</label>
+	  <input type="text" name="mailid" class="form-control" id="mailid" placeholder="Input Email">
+	</div>
+	<div class="form-group">
+	  <select class="form-control" id="sel1" name="sel">
+	    <option value="naver">@naver.com</option>
+	    <option value="gmail">@gmail.com</option>
+	    <option value="kakao">@kakao.com</option>
+	    <option value="han">@hanmail.net</option>
+	  </select>
+	</div>
+	  <button id="register_bt" type="button" class="btn btn-success">REGISTER</button>
+	</form>
+</div>
+</div>

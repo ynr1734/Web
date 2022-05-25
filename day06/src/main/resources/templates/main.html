@@ -10,12 +10,23 @@
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/style.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bf5a7bc84608c961c4cc70e52b931c57"></script>
     </head>
     <body>
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
             <div class="border-end bg-white" id="sidebar-wrapper">
-				
+			<div class="sidebar-heading border-bottom bg-light">MBTI</div>
+			<div class="list-group list-group-flush">
+		    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="synopsis">Synopsis</a>
+		    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="test">Test</a>
+		    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="result">Result</a>
+		    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="information">Information</a>
+		    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="contact">Contact</a>
+			<a class="list-group-item list-group-item-action list-group-item-light p-3" href="location">Location</a>
+			</div>	
             </div>
             <!-- Page content wrapper-->
             <div id="page-content-wrapper">
@@ -51,5 +62,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script src="js/result.js"></script>
     </body>
 </html>
